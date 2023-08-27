@@ -1,0 +1,14 @@
+.app-container {
+    display: flex;
+    height: 100vh; /* Adjust to your desired height */
+  }
+  
+  .app-sidebar {
+    flex: 0 0 250px; /* Sidebar width */
+  }
+  
+  .content {
+    flex: 1; /* Take remaining space */
+    padding: 15px;
+  }
+  

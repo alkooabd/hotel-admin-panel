@@ -1,0 +1,16 @@
+<router-outlet></router-outlet>
+<nav class="sidebar">
+  <ul class="nav flex-column">
+    <li class="nav-item" *ngFor="let item of sidebarItems; let i = index">
+      <a class="nav-link" *ngIf="!item.isDropdown" [routerLink]="item.route" (click)="preventSidebarCloseForIzvestuvanje($event)">{{ item.label }}</a>
+      <div class="nav-item dropdown" *ngIf="item.isDropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" (click)="toggleDropdown($event, i)">
+          {{ item.label }}
+        </a>
+        <div class="dropdown-menu" [ngClass]="{ 'show': openDropdownIndex === i }">
+          <a class="dropdown-item" [routerLink]="child.route" *ngFor="let child of item.children">{{ child.label }}</a>
+        </div>
+      </div>
+    </li>    
+  </ul>
+</nav>
